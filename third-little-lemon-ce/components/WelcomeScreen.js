@@ -9,7 +9,7 @@ export default function WelcomeScreen() {
           
           padding: 40,
           fontSize: 24,
-          color: '#EDEFEE',
+          color: '#18182d',
           textAlign: 'center',
         }}>
         Welcome to Little Lemon
@@ -20,7 +20,7 @@ export default function WelcomeScreen() {
           fontSize: 20,
           padding: 20,
           marginVertical: 8,
-          color: '#EDEFEE',
+          color: '#18182d',
           textAlign: 'center',
         }}>
         Little Lemon is a charming neighborhood bistro that serves simple food
