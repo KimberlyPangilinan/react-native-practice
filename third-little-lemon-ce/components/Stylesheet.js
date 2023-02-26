@@ -14,13 +14,13 @@ export const appStyles = StyleSheet.create({
 
 export const footerStyles = StyleSheet.create({
     container: {
-        backgroundColor: '#d5d6e0',
+        backgroundColor: '#3c343d',
           marginBottom: 0,
-          padding: 8
+          padding: 16
     },
     text:{
         fontSize: 10,
-            color: 'black',
+            color: 'white',
             textAlign: 'center',
     }
 })

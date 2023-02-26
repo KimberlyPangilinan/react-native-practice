@@ -7,18 +7,15 @@ export default function App() {
 
   
   return (
-    <> 
+   
       <View
         style={appStyles.container}>
         <LittleLemonHeader />
         <WelcomeScreen/>
        
       </View>
-      <View
-        style={appStyles.text}>
-        <LittleLemonFooter/>
-      </View>
-    </>
+    
+   
    
   );
 }

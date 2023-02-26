@@ -1,6 +1,31 @@
 import * as React from 'react';
-import { View,ScrollView, Text, FlatList } from 'react-native';
+import { View,ScrollView, Text, FlatList, StyleSheet } from 'react-native';
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  innerContainer: {
+    paddingHorizontal: 40,
+    paddingVertical: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  itemText: {
+    color: 'black',
+    fontSize: 16,
+  },
+  itemMenu: {
+    color: 'black',
+    fontSize: 16,
+    textAlign:'center'
+  },
+  MenuContainer: {
+    
+    paddingVertical: 20,
+    justifyContent: 'center',
+  },
+})
 const menuItemsToDisplay = [
   { name: 'Hummus', id: '1A' },
   { name: 'Moutabal', id: '2B' },
@@ -27,41 +52,53 @@ const menuItemsToDisplay = [
 ];
 
 const Item = ({name,id}) => (
-  <View>
-    <Text>{name}</Text>
+  <View style={styles.innerContainer}>
+    <Text style={styles.itemText}>{name}</Text>
     <Text>{id}</Text>
   </View>
 )
-
+const Seperator =()=> <View style={{borderBottomWidth:0.5,borderColor:'#3c343d'}}/>
+const Header =()=> <View  style={styles.MenuContainer}><Text style={styles.itemMenu}>Menu</Text></View>
 export default function WelcomeScreen() {
 
   const renderItem = ({item}) => <Item name = {item.name} id={item.id}/>
   return (
-    <View style={{ flex: 1 , }}>
-      <Text
+    <View style={styles.container}>
+    <View style={{
+      backgroundColor:"#265630",
+    }}>
+    <Text
         style={{
-          
-          padding: 40,
-          fontSize: 54,
-          color: '#18182d',
-          textAlign: 'center',
+
+          marginHorizontal: 24,
+          marginTop: 32,
+          fontSize: 24,
+          color: '#cb9d23',
+          textAlign: 'left',
         }}>
         Welcome to Little Lemon
       </Text>
       <Text
         style={{
-
-          fontSize: 30,
-          padding: 20,
-          marginVertical: 8,
-          color: '#18182d',
-          textAlign: 'center',
+          fontSize: 10,
+          marginHorizontal: 24,
+          marginTop:24,
+          marginBottom: 32,
+          color: 'white',
+          textAlign: 'left',
         }}>
         Little Lemon is a charming neighborhood bistro that serves simple food
         and classic cocktails in a lively but casual environment. We would love
         to hear your experience with us!
-      </Text>
-      <FlatList data={menuItemsToDisplay} renderItem={renderItem}/>
+      </Text></View>
+      
+      <FlatList 
+        data={menuItemsToDisplay} 
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+        ItemSeparatorComponent={Seperator}
+        ListHeaderComponent={Header}
+      />
     </View>
   );
 }
